@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'indicadores.core',
     'indicadores.login',
+    'indicadores.tarefa',
 )
 
 MIDDLEWARE_CLASSES = (
