@@ -8,6 +8,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^core/', include('indicadores.core.urls', namespace='core')),
-    url(r'', include('wisefi.login.urls', namespace='login')),
+    url(r'', include('indicadores.login.urls', namespace='login')),
 )
 

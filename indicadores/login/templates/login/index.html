@@ -1,0 +1,71 @@
+{% extends 'login_base.html' %}
+
+{% block content %}
+
+<div class="login_top"></div>
+
+    <div class="login_imagem">
+        <img src="{{STATIC_URL}}img/intelbras_login.png">
+    </div>
+
+<div class="login_botton">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <br><br>
+
+        <form action="/validate/" method="POST" id="" align="center" class="">
+            {% csrf_token %}
+
+            <div class="col-md-12">
+            <fieldset>
+                <section>
+                    <label class="input">
+                        <img src="{{STATIC_URL}}img/campo_usuario_normal.png">
+                        <input type="input" name="username" placeholder="Usuário">
+                    </label>
+                </section>
+
+                <br>
+
+                <section>
+                    <label class="input">
+                        <img src="{{STATIC_URL}}img/campo_usuario_normal.png">
+                        <input type="password" name="password">
+                    </label>
+                </section>
+
+                </fieldset>
+
+                <p align="">
+
+                    <a href="javascript:void(0);" style=
+                        "color: #FFF;
+                        text-decoration: underline;
+                        font-weight: normal;
+                        font-size: 11px;
+                        font-style: Tahoma" id="popover" rel="popover" data-placement="bottom"
+                        data-content="
+                            Sua senha será redirecionada para o e-mail:<br>
+                            <form>
+                                <input type='input' name='email' id='email'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='sendEmail();' class='btn btn-popover'>enviar</a>
+                            </form>" data-html="true">
+                        Esqueceu sua senha
+                    </a>
+
+                </p>
+
+                <footer>
+                    <button type="submit" class="btn btn-login">
+                        Entrar
+                    </button>
+                </footer>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

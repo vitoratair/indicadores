@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+        <title>Wisefi</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- http://davidbcalhoun.com/2010/viewport-metatag -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Basic Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/font-awesome.min.css">
+
+        <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+        <link rel="stylesheet " type="text/css" media="screen" href="{{ STATIC_URL }}css/smartadmin-production.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/smartadmin-skins.css">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/demo.css">
+
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="{{ STATIC_URL }}img/favicon/favicon.ico" type="image/x-icon">
+
+    </head>
+
+    <!-- <body class="fixed-header fixed-ribbon fixed-navigation" style="background: #55595e;"> -->
+    <body class="fixed-header fixed-ribbon fixed-navigation">
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    </div>
+
+
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="{{ STATIC_URL }}js/libs/jquery-2.0.2.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/libs/jquery-ui-1.10.3.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ STATIC_URL }}js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="{{ STATIC_URL }}js/notification/SmartNotification.min.js"></script>
+
+    <!-- JARVIS WIDGETS -->
+    <script src="{{ STATIC_URL }}js/smartwidgets/jarvis.widget.min.js"></script>
+
+    <!-- EASY PIE CHARTS -->
+    <script src="{{ STATIC_URL }}js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+    <!-- SPARKLINES -->
+    <script src="{{ STATIC_URL }}js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- JQUERY VALIDATE -->
+    <script src="{{ STATIC_URL }}js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="{{ STATIC_URL }}js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="{{ STATIC_URL }}js/plugin/select2/select2.min.js"></script>
+
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="{{ STATIC_URL }}js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+    <!-- browser msie issue fix -->
+    <script src="{{ STATIC_URL }}js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+    <!-- Demo purpose only -->
+    <script src="{{ STATIC_URL }}js/demo.js"></script>
+
+    <!-- MAIN APP JS FILE -->
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+
+    <script src="{{ STATIC_URL }}js/valida.js"></script>
+
+    <script type="text/javascript">
+
+        // DO NOT REMOVE : GLOBAL FUNCTIONS!
+        pageSetUp();
+
+        // Load form valisation dependency
+        loadScript("{{ STATIC_URL }}js/plugin/jquery-form/jquery-form.min.js", runFormValidation);
+
+    </script>
+    </body>
+
+</html>
+
+

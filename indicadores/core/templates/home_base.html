@@ -1,0 +1,294 @@
+{% load home_tags %}
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Wisefi</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Basic Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/font-awesome.min.css">
+
+        <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/smartadmin-production.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/smartadmin-skins.css">
+
+        <script src="{{ STATIC_URL }}js/libs/jquery-2.0.2.min.js"></script>
+
+        <!-- SmartAdmin RTL Support is under construction
+            <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.css"> -->
+
+        <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/demo.css">
+
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="{{ STATIC_URL }}img/favicon/favicon.ico" type="image/x-icon">
+
+    </head>
+
+    <body class="fixed-header fixed-ribbon fixed-navigation">
+
+    <header id="header">
+
+        <span id="logo">
+            <img src="{{STATIC_URL}}img/topo_marca.png" width="150%">
+        </span>
+
+    </header>
+
+<aside id="left-panel">
+    <nav>
+        <ul>
+            <li class="{{ request.build_absolute_uri | getClassByUrl:'home'}}">
+                <a href="/home/" title="Home"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Home</span></a>
+            </li>
+
+            <li class="{{ request.build_absolute_uri | getClassByUrl:'aps-region-client'}}">
+                <a href="/aps/"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i><span class="menu-item-parent">Rede</span></a>
+                <ul>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'aps'}}">
+                        <a href="/aps/">Access Point</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'region'}}">
+                        <a href="/region/">Região</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'client'}}">
+                        <a href="/client/">Clientes</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="{{ request.build_absolute_uri | getClassByUrl:'global-user'}}">
+                <a href="/configuration/global/"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i><span class="menu-item-parent">Configurações</span></a>
+                <ul>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'global'}}">
+                        <a href="/configuration/global/">Globais</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'user'}}">
+                        <a href="/configuration/user/">Usuários</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="{{ request.build_absolute_uri | getClassByUrl:'facebook-password-voucher-redirect-custom'}}">
+                <a href="/cp/facebook/"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i><span class="menu-item-parent">Captive Portal</span></a>
+                <ul>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'facebook'}}">
+                        <a href="/cp/facebook/">Facebook</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'password'}}">
+                        <a href="/cp/password/">Senha simples</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'voucher'}}">
+                        <a href="/cp/voucher/">Voucher</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'redirect'}}">
+                        <a href="/cp/redirect/">Redirecionar</a>
+                    </li>
+                    <li class="{{ request.build_absolute_uri | getClassByUrl:'custom'}}">
+                        <a href="/cp/custom/">Customizar</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+<!--     <span class="minifyme">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>   -->
+</aside>
+
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    </div>
+
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local
+    <script src="{{ STATIC_URL }}js/libs/jquery-2.0.2.min.js"></script>-->
+
+    <script src="{{ STATIC_URL }}js/libs/jquery-ui-1.10.3.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ STATIC_URL }}js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="{{ STATIC_URL }}js/notification/SmartNotification.min.js"></script>
+
+    <!-- JARVIS WIDGETS -->
+    <script src="{{ STATIC_URL }}js/smartwidgets/jarvis.widget.min.js"></script>
+
+    <!-- EASY PIE CHARTS -->
+    <script src="{{ STATIC_URL }}js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+    <!-- SPARKLINES -->
+    <script src="{{ STATIC_URL }}js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- JQUERY VALIDATE -->
+    <script src="{{ STATIC_URL }}js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="{{ STATIC_URL }}js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="{{ STATIC_URL }}js/plugin/select2/select2.min.js"></script>
+
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="{{ STATIC_URL }}js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+    <!-- browser msie issue fix -->
+    <script src="{{ STATIC_URL }}js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+    <!-- Demo purpose only -->
+    <script src="{{ STATIC_URL }}js/demo.js"></script>
+
+    <!-- MAIN APP JS FILE -->
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+
+    <script src="{{ STATIC_URL }}js/valida.js"></script>
+
+    <script type="text/javascript">
+
+        // DO NOT REMOVE : GLOBAL FUNCTIONS!
+        pageSetUp();
+
+        // Load form valisation dependency
+        loadScript("{{ STATIC_URL }}js/plugin/jquery-form/jquery-form.min.js", runFormValidation);
+
+        loadDataTableScripts();
+
+        function loadDataTableScripts() {
+
+            loadScript("{{ STATIC_URL }}js/plugin/datatables/jquery.dataTables-cust.js", dt_2);
+
+            function dt_2() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/ColReorder.min.js", dt_3);
+            }
+
+            function dt_3() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/FixedColumns.min.js", dt_4);
+            }
+
+            function dt_4() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/ColVis.min.js", dt_5);
+            }
+
+            function dt_5() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/ZeroClipboard.js", dt_6);
+            }
+
+            function dt_6() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/media/js/TableTools.min.js", dt_7);
+            }
+
+            function dt_7() {
+                loadScript("{{ STATIC_URL }}js/plugin/datatables/DT_bootstrap.js", runDataTables);
+            }
+        }
+
+    function runDataTables() {
+
+        /*
+         * BASIC
+         */
+        $('#default-table').dataTable({
+            "pagingType": "simple_numbers",
+            "bInfo" : false,
+            "bSort": false
+
+        });
+
+        $('#table-configs').dataTable({
+            "bPaginate": false,
+            "bFilter": false,
+            "bInfo" : false
+
+        });
+
+        /* END BASIC */
+
+        /* Add the events etc before DataTables hides a column */
+        $("#datatable_fixed_column thead input").keyup(function() {
+            oTable.fnFilter(this.value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this)));
+        });
+
+        $("#datatable_fixed_column thead input").each(function(i) {
+            this.initVal = this.value;
+        });
+        $("#datatable_fixed_column thead input").focus(function() {
+            if (this.className == "search_init") {
+                this.className = "";
+                this.value = "";
+            }
+        });
+        $("#datatable_fixed_column thead input").blur(function(i) {
+            if (this.value == "") {
+                this.className = "search_init";
+                this.value = this.initVal;
+            }
+        });
+
+
+        var oTable = $('#datatable_fixed_column').dataTable({
+            "sDom" : "<'dt-top-row'><'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
+            //"sDom" : "t<'row dt-wrapper'<'col-sm-6'i><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'>>",
+            "oLanguage" : {
+                "sSearch" : "Search all columns:"
+            },
+            "bSortCellsTop" : true
+        });
+
+
+
+        /*
+         * COL ORDER
+         */
+        $('#datatable_col_reorder').dataTable({
+            "sPaginationType" : "bootstrap",
+            "sDom" : "R<'dt-top-row'Clf>r<'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
+            "fnInitComplete" : function(oSettings, json) {
+                $('.ColVis_Button').addClass('btn btn-default btn-sm').html('Columns <i class="icon-arrow-down"></i>');
+            }
+        });
+
+        /* END COL ORDER */
+
+        /* TABLE TOOLS */
+        $('#datatable_tabletools').dataTable({
+            "sDom" : "<'dt-top-row'Tlf>r<'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
+            "oTableTools" : {
+                "aButtons" : ["print"],
+            },
+            "fnInitComplete" : function(oSettings, json) {
+                $(this).closest('#dt_table_tools_wrapper').find('.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function() {
+                    $(this).addClass('btn-sm btn-default');
+                });
+            }
+        });
+
+        /* END TABLE TOOLS */
+
+    }
+
+    </script>
+    </body>
+
+</html>
+
+
