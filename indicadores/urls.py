@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^core/', include('indicadores.core.urls', namespace='core')),
+    url(r'^tarefa/', include('indicadores.tarefa.urls', namespace='core')),
     url(r'', include('indicadores.login.urls', namespace='login')),
 )
 
