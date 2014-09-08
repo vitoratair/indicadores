@@ -1,6 +1,6 @@
 all: deps
 
-	@python manage.py runserver 0.0.0.0:8000
+	@python manage.py runserver 0.0.0.0:9000
 
 
 test: clean deps
