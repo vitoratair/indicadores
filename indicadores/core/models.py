@@ -43,3 +43,17 @@ class Colaborador(models.Model):
 
     def __unicode__(self):
         return self.colaborador
+
+
+class Produto(models.Model):
+    produto = models.CharField(_(u'Produto'), max_length=20, unique=True)
+    descricao = models.CharField(_(u'Descrição'), max_length=100)
+    segmento = models.ForeignKey('Segmento')
+
+    class Meta:
+        ordering = ['produto']
+        verbose_name = _(u'Produto')
+        verbose_name_plural = _(u'Produtos')
+
+    def __unicode__(self):
+        return self.produto
