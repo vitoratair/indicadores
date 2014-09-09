@@ -16,7 +16,7 @@
 						{% csrf_token %}
 	                    <fieldset>
 	                    	<div class="row">
-	                    		<div class="col-md-4">
+	                    		<div class="col-md-2">
 			                        <section>
 			                            <label class="select">
 			                                <select name="produto">
@@ -30,7 +30,7 @@
 			                        </section>
 		                        </div>
 
-	                    		<div class="col-md-4">
+	                    		<div class="col-md-2">
 			                        <section>
 			                            <label class="select">
 			                                <select name="colaborador">
@@ -55,13 +55,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-tasks"></i>Tarefas</h3>
                     </div>
-                    <div class="panel-body">
-                        <p>
-                        Texto sobre a tabela Texto sobre a tabela Texto sobre a tabela
-                        Texto sobre a tabela Texto sobre a tabela Texto sobre a tabela
-                        Texto sobre a tabela Texto sobre a tabela Texto sobre a tabela
-                        </p>
-                    </div>
+                    <div class="panel-body"></div>
                     <table class="table">
                         <thead>
                             <tr>
@@ -85,7 +79,7 @@
 	                                <td>{{ tarefa.colaborador }}</td>
 	                                <td>{{ tarefa.descricao }}</td>
 	                                <td>
-	                                <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+	                                <a href="#" data-toggle="modal" onclick='editarTarefa({{ tarefa.id }})'><span class="glyphicon glyphicon-edit"></span></a>
 	                                &nbsp;&nbsp;&nbsp;&nbsp;
 	                                <a href=""><span class="glyphicon glyphicon-trash"></span></a>
 	                                </td>
@@ -97,6 +91,88 @@
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="editarTarefa">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Edição da tarefa </h3>
+      </div>
+
+      <form action="" id="sky-form4" class="sky-form">
+      <div class="modal-body" id="modal-content">
+
+        <fieldset>
+            <div class="row">
+                <section class="col-md-12">
+                    <label class="label">Tarefa</label>
+                    <label class="input">
+                        <div id="modal-form-tarefa"></div>
+                    </label>
+                </section>
+            </div>
+
+            <div id="modal-form-produtoColaborador">
+
+                <div class="row">
+                    <section class="col-md-6">
+                        <label class="label">Produto</label>
+                        <label class="select">
+                            <select name="produto">
+                                {% for produto in produtos %}
+                                    <option value="{{ produto.id }}">{{ produto.produto }}</option>
+                                {% endfor %}
+                            </select>
+                            <i></i>
+                        </label>
+                    </section>
+
+                    <section class="col-md-6">
+                        <label class="label">Responsável</label>
+                        <label class="select">
+                            <select name="colaborador">
+                                {% for colaborador in colaboradores %}
+                                    <option value="{{ colaborador.id }}">{{ colaborador.colaborador }}</option>
+                                {% endfor %}
+                            </select>
+                            <i></i>
+                        </label>
+                    </section>
+
+                </div>
+            </div>
+
+        </fieldset>
+
+      <div class="modal-footer">
+		<a href="" class="btn btn-u" data-dismiss="modal">Não</a>
+		<a href="" class="btn btn-u" id="Desligar">Sim</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+	function editarTarefa(tarefa)
+	{
+
+		$('#editarTarefa').modal('show');
+
+		$.get( "/tarefa/editar/" + tarefa + "/", function(data)
+		{
+            $.each(data, function(i, item) {
+
+				$("#modal-form-tarefa").append
+				(
+                    '<input type="text" name="firstname" placeholder="' + item.fields.tarefa + '">'
+				)
+            });
+		});
+	}
+</script>
 
 
 {% endblock content %}
