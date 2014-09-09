@@ -122,10 +122,8 @@
 
             </div>
         </div>
-    </div><!--/footer-->
-    <!--=== End Footer ===-->
+    </div>
 
-    <!--=== Copyright ===-->
     <div class="copyright">
         <div class="container">
             <div class="row">
@@ -135,16 +133,10 @@
                         <a target="_blank" href="http://www.intelbras.com.br">intelbras.com.br</a>
                     </p>
                 </div>
-                <div class="col-md-6">
-                    <a href="index.html">
-                        <img class="pull-right" id="logo-footer" src="{{ STATIC_URL }}assets/img/logo2-default.png" alt="">
-                    </a>
-                </div>
             </div>
         </div>
-    </div><!--/copyright-->
-    <!--=== End Copyright ===-->
-</div><!--/wrapper-->
+    </div>
+</div>
 
 <!-- JS Global Compulsory -->
 <script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-1.10.2.min.js"></script>
@@ -154,15 +146,23 @@
 <script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/flexslider/jquery.flexslider-min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/parallax-slider/js/modernizr.js"></script>
-<script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/counter/jquery.counterup.min.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/circles-master/circles.js"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ STATIC_URL }}assets/js/app.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}assets/js/pages/index.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/js/plugins/circles-master.js"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
       	App.init();
         App.initSliders();
         Index.initParallaxSlider();
+        App.initCounter();
+        CirclesMaster.initCirclesMaster1();
+        CirclesMaster.initCirclesMaster2();
     });
 </script>
 <!--[if lt IE 9]>
