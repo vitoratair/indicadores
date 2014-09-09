@@ -1,5 +1,7 @@
 {% extends 'home_base.html' %}
 
+{% load home_tags %}
+
 {% block content %}
     <div class="breadcrumbs">
         <div class="container">
@@ -10,7 +12,45 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-12">
-                <!--Basic Table-->
+					<form action="." method="POST" id="" class="sky-form" novalidate="novalidate">
+						{% csrf_token %}
+	                    <fieldset>
+	                    	<div class="row">
+	                    		<div class="col-md-4">
+			                        <section>
+			                            <label class="select">
+			                                <select name="produto">
+			                                    <option value="0">Produto</option>
+			                                    {% for produto in produtos %}
+			                                    	<option value="{{ produto.id }}">{{ produto.produto }}</option>
+			                                    {% endfor %}
+			                                </select>
+			                                <i></i>
+			                            </label>
+			                        </section>
+		                        </div>
+
+	                    		<div class="col-md-4">
+			                        <section>
+			                            <label class="select">
+			                                <select name="colaborador">
+			                                	<option value="0">Responsável</option>
+			                                    {% for colaborador in colaboradores %}
+			                                    	<option value="{{ colaborador.id }}">{{ colaborador.colaborador }}</option>
+			                                    {% endfor %}
+			                                </select>
+			                                <i></i>
+			                            </label>
+			                        </section>
+		                        </div>
+	                        </div>
+	                   		<button type="submit" class="button">Filtrar</button>
+	                    </fieldset>
+					</form>
+
+					<br>
+
+
                 <div class="panel panel-green margin-bottom-40">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-tasks"></i>Tarefas</h3>
@@ -25,24 +65,32 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Projeto</th>
+                                <th>Produto</th>
                                 <th>Tarefa</th>
                                 <th>Sprint origem</th>
                                 <th>Status</th>
                                 <th>Responsável</th>
-                                <th>Comentário</th>
+                                <th>Descrição</th>
+                                <th>Opções</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>AP 300</td>
-                                <td>Desenvolver firmware</td>
-                                <td>12</td>
-                                <td>done</td>
-                                <td>Vitor Atair</td>
-                                <td>comentário da tarefa</td>
-                            </tr>
+                        	{% for tarefa in tarefas %}
+	                            <tr>
+	                                <td>{{ tarefa.produto }}</td>
+	                                <td>{{ tarefa.tarefa }}</td>
+	                                <td>{{ tarefa.sprintOrigem }}</td>
+	                                <td><span class="label label-u">{{ tarefa.percentual | get_porcentagem }}  </span></td>
+	                                <td>{{ tarefa.colaborador }}</td>
+	                                <td>{{ tarefa.descricao }}</td>
+	                                <td>
+	                                <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+	                                &nbsp;&nbsp;&nbsp;&nbsp;
+	                                <a href=""><span class="glyphicon glyphicon-trash"></span></a>
+	                                </td>
+	                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

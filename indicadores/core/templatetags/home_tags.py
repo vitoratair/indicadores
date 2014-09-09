@@ -1,7 +1,26 @@
+#coding: utf-8
 from django import template
 
 register = template.Library()
 
+
+@register.filter(name='get_porcentagem')
+def get_porcentagem(porcentagem):
+
+    if porcentagem == "1":
+    	return "Não iniciada"
+
+    elif porcentagem == "2":
+    	return "Em estudo"
+
+    elif porcentagem == "3":
+    	return "Sendo implementada"
+
+    elif porcentagem == "4":
+    	return "Em testes"
+
+    elif porcentagem == "5":
+    	return "Finalizada"
 
 @register.filter(name='get_url')
 def get_url(url):
